@@ -1,0 +1,56 @@
+﻿@model Category
+<br />
+<br />
+<div class="row">
+    <div class="col-md-4 col-sm-12">
+
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <div class="card">
+            <br />
+            <h1>Eliminar Categoria</h1>
+            <br />
+            <form asp-action="Delete" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label class="col-form-label" asp-for="Name">
+                    </label>
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <input disabled value="@Model.Name" class="form-control" asp-for="Name" type="text" name="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" asp-for="Description">
+                    </label>
+                    <input disabled value="@Model.Description" class="form-control" asp-for="Description" type="text" Description="Description" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <br />
+                <br />
+                <a id="mostrar" class="btn btn-danger" style="color:white; cursor:pointer">Eliminar</a>
+                <button id="eliminar" type="submit" class="btn btn-info" style="display: none"></button>
+            </form>
+
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+
+    </div>
+
+</div>
+
+@section Scripts{ 
+    <script>
+        var mostrar = document.querySelector("#mostrar");       
+        mostrar.addEventListener("click", pressclick);
+
+        function pressclick() {
+            if (confirm("Esta seguro de eliminar la categoria? n\ Esto Eliminara las"
+                +"aplicaciones con esta categoria asignada")){
+                $("#eliminar").trigger("click");
+            }
+        }
+
+    </script>
+
+}

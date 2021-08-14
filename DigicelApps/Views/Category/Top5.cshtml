@@ -1,0 +1,56 @@
+﻿<style>
+    .message {
+        color: black;
+        font-weight: bold;
+    }
+
+    .message-error {
+        color: red;
+        font-weight: bold;
+    }
+
+
+    .close {
+        font-weight: bold;
+        color: black;
+        position: relative;
+        top: 15px;
+        float: right;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+</style>
+@model List<CategoryTopDto>
+<br />
+<br />
+<h1>Top 5 de categorias mas asignadas</h1>
+<br />
+
+<div class="row">
+    <div class="col-md-1 col-sm-12">
+
+    </div>
+    <div class="col-md-10 col-sm-12">
+        <table id="table" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.name</th>
+                        <th>@item.count</th>                                              
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-1 col-sm-12">
+
+    </div>
+</div>
